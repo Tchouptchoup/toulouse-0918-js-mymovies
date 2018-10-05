@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 class App extends Component {
   render() {
@@ -11,6 +12,9 @@ class App extends Component {
         <header>
           <Navbar />
         </header>
+        <footer>
+          <Footer />
+        </footer>
       </div>
     );
   }
