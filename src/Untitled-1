@@ -1,0 +1,9 @@
+const movie = {
+    title: 'Incredibles 2',
+    director: 'Brad Bird',
+    studio: 'Pixar',
+    releaseYear: 2018
+};
+for (let key in movie) {
+    console.log(key, movie[key]); // Afficher la clé et la valeur
+};

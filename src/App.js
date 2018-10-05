@@ -3,16 +3,28 @@ import './App.css';
 import Modal from './ListFilms.js';
 
 class App extends Component {
+  state = {
+    open: false,
+  };
+ 
+  onOpenModal = () => {
+    this.setState({ open: true });
+  };
+ 
+  onCloseModal = () => {
+    this.setState({ open: false });
+  };
+ 
   render() {
+    const { open } = this.state;
     return (
-      <div className="App">
-        <div class="container-fluid">
-          <Modal
-          />
-        </div>
+      <div>
+        <button onClick={this.onOpenModal}>Open modal</button>
+        <Modal open={open} onClose={this.onCloseModal} center>
+          <h2>Simple centered modal</h2>
+        </Modal>
       </div>
     );
   }
 }
-
 export default App;

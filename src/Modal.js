@@ -1,21 +1,8 @@
 // src/Quote.js
-import React from "react";
+import React, { Component } from 'react';
 
-class Modal extends React.Component {
-    state = {
-        open: false
-    };
-
-    onOpenModal = () => {
-        this.setState({ open: true });
-    };
-
-    onCloseModal = () => {
-        this.setState({ open: false });
-    };
-
-
-
+class App extends Component {
+const Modal = ({ title, director, trailer, release, ratings, duration, synopsis }) => (
 
     render() {
         const { open } = this.state;
@@ -56,4 +43,5 @@ class Modal extends React.Component {
         );
     }
 }
+)
 export default Modal;
