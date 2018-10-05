@@ -1,0 +1,26 @@
+footer
+{
+	background-color: black;
+	padding: 40px 0px;
+}
+
+footer li a
+{
+	color: #b1aca1;
+	padding: 30px;
+}
+
+.socialNetworks, .menu
+{
+	padding-top: 40px;
+}
+
+.copyright
+{
+	background-color: grey;
+}
+
+.copyright p
+{
+   margin: 20px;
+}
