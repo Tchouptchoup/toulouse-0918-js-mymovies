@@ -1,7 +1,7 @@
 import React from "react";
 // src/Modal.js
 import Modal from './Modal.js';
-const modals = [
+const ModalArray = [
   {
     id: 1,
     poster: "http://canalplay-media.canal-plus.com/movies/5750/pictures/5750_pivot_large.jpg",
@@ -59,12 +59,12 @@ const modals = [
   },
 ];
 
-const Modals = () => (
+const ModalArray = () => (
   <div>
     {modals.map(modale => (
-      <Modal trailer={modal.trailer} title={modal.title} synopsis={modal.synopsis}  director={modal.director} duration={modal.duration} release={modal.release} ratings={modal.ratings} poster={modal.poster}/>
+      <Modal trailer={modals.trailer} title={modals.title} synopsis={modals.synopsis}  director={modals.director} duration={modals.duration} release={modals.release} ratings={modals.ratings} poster={modals.poster}/>
     ))}
   </div>
 );
 
-export default Modals;
+export default ModalArray;
