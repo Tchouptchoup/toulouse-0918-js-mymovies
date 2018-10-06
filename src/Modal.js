@@ -1,7 +1,10 @@
 // src/Quote.js
 import React, { Component } from 'react';
 import Modal from './ListFilms.js';
-    class Modal extends React.Component {
+import { Button } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+    class Test extends React.Component {
         constructor(props, context) {
           super(props, context);
       
@@ -123,4 +126,4 @@ import Modal from './ListFilms.js';
         }
       }
       
-      render(<Modal />);
+      render(<Test />);

@@ -1,6 +1,6 @@
 import React from "react";
 // src/Modal.js
-import Modal from './Modal.js';
+import Test from './Modal.js';
 const ModalArray = [
   {
     id: 1,
