@@ -1,13 +1,13 @@
 import React from 'react';
 import Modal from 'react-modal';
-import * as Scroll from 'react-scroll';
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import moviesData from "./moviesData";
 
 const customStyles = {
   content: {
-    overFlow: scroll,
-    bottom:'auto',
-    marginTop: '5%',
+    top: '10%',
+    bottom: 'auto',
+    height: '80%', 
+    overlfow: 'scroll',
   }
 };
 class Modal_button extends React.Component {
@@ -29,7 +29,6 @@ class Modal_button extends React.Component {
 
   afterOpenModal() {
     // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#f00';
   }
 
   closeModal() {
@@ -38,7 +37,7 @@ class Modal_button extends React.Component {
 
   render() {
     return (
-      <div >
+      <div>
         <button onClick={this.openModal}>Open Modal</button>
         <Modal
           isOpen={this.state.modalIsOpen}
@@ -46,25 +45,32 @@ class Modal_button extends React.Component {
           onRequestClose={this.closeModal}
           style={customStyles}
           contentLabel="Modal">
-            <Link activeClass="active" to="test1" spy={true} smooth={true} offset={50} duration={500} onSetActive={this.handleSetActive}>
-            <div class="modal-header p-0">
-              <button onClick={this.closeModal} type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+          <div class="modal-header p-0">
+            <img className="affiche-size mx-3" src={moviesData.image} alt={moviesData.title} />
+            <button onClick={this.closeModal} type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body p-5">
+            <div class="embed-responsive embed-responsive-16by9 rounded">
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/GqHW3CyI7co?ecver=2" allowfullscreen></iframe>
             </div>
-            <div class="modal-body">
-              <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-              </div>
-              <h2 ref={subtitle => this.subtitle = subtitle}>Matrix </h2>
+            <h2 ref={moviesData.title} className="text-center mt-5">Le Labyrinthe de Pan</h2>
+            <img src={moviesData.poster} alt={moviesData.title}/>
+            <p>Synopsis : </p>
+            <p>{moviesData.synopsis}</p>
+            <p>{moviesData.title}</p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
 
-              <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Save changes</button>
-              <button onClick={this.closeModal} type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-            </Link>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">A voir !</button>
+            <button type="button" class="btn btn-primary">J'aime</button>
+            <button onClick={this.closeModal} type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
         </Modal>
       </div >
     );
