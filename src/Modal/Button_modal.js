@@ -1,6 +1,10 @@
 import React from 'react';
 import Modal from 'react-modal';
 import moviesData from "./moviesData";
+import Body_modal from "./Body_modal";
+import Posters from "./Poster_test"
+
+
 
 const customStyles = {
   content: {
@@ -15,7 +19,8 @@ class Modal_button extends React.Component {
     super();
 
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      
     };
 
     this.openModal = this.openModal.bind(this);
@@ -24,7 +29,8 @@ class Modal_button extends React.Component {
   }
 
   openModal() {
-    this.setState({ modalIsOpen: true });
+    this.setState({ modalIsOpen: true,
+    });
   }
 
   afterOpenModal() {
@@ -37,43 +43,32 @@ class Modal_button extends React.Component {
 
   render() {
     return (
+
       <div>
-        <button onClick={this.openModal}>Open Modal</button>
+        <button onClick={this.openModal}>Images</button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles}
           contentLabel="Modal">
-          <div class="modal-header p-0">
-            <img className="affiche-size mx-3" src={moviesData.image} alt={moviesData.title} />
-            <button onClick={this.closeModal} type="button" class="close" data-dismiss="modal" aria-label="Close">
+          
+          <div class="modal-header mb-3">
+            <button onClick={this.closeModal} type="button" class="close bg-ligth" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body p-5">
-            <div class="embed-responsive embed-responsive-16by9 rounded">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/GqHW3CyI7co?ecver=2" allowfullscreen></iframe>
-            </div>
-            <h2 ref={moviesData.title} className="text-center mt-5">Le Labyrinthe de Pan</h2>
-            <img src={moviesData.poster} alt={moviesData.title}/>
-            <p>Synopsis : </p>
-            <p>{moviesData.synopsis}</p>
-            <p>{moviesData.title}</p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-
+          <div className="m-0">
+          <Body_modal/> 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary">A voir !</button>
-            <button type="button" class="btn btn-primary">J'aime</button>
+            <button type="button" className="btn btn-primary">A voir !</button>
+            <button type="button" className="btn btn-primary">J'aime</button>
             <button onClick={this.closeModal} type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </Modal>
-      </div >
-    );
+      </div>
+    )
   }
 }
 
