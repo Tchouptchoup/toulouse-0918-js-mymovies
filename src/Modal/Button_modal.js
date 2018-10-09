@@ -2,8 +2,6 @@ import React from 'react';
 import Modal from 'react-modal';
 import moviesData from "./moviesData";
 import Body_modal from "./Body_modal";
-import Posters from "./Poster_test"
-
 
 
 const customStyles = {
