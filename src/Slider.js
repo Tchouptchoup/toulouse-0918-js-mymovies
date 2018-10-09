@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Slider.css';
-import {APIKey} from './settings'
 
 import Affiches from "./Affiches"
 // import affichesData from "./affichesData"
@@ -20,12 +19,12 @@ class Slider extends Component {
         super(props);
         this.state = {
             sliceNumber: 0,
-            slices: []
+            slices: [],
         };
     }
 
     componentDidMount() {
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${APIKey}&language=fr-FR&page=4`)
+        fetch(this.props.url)
             .then(response => response.json())
             .then(data => {
                 const slices = divideData(data.results)
@@ -52,7 +51,7 @@ class Slider extends Component {
     render() {
         const sliceNumber = this.state.sliceNumber
         return (
-            <div className="container-fluid slice-marge">
+            <div className="container-fluid slice-marge pt-3">
                 <div id="carouselExampleControls" className="carousel slide" data-ride="carousel" data-interval="false">
                     <div className="carousel-inner">
                         {
