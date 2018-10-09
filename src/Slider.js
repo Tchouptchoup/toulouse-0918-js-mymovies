@@ -1,47 +1,62 @@
 import React, { Component } from 'react';
+import './Slider.css';
+import {APIKey} from './settings'
 
 import Affiches from "./Affiches"
-import affichesData from "./affichesData"
+// import affichesData from "./affichesData"
 
 function divideData(tab) {
     let dataTabFinal = [];
-    for (let i = 0 ; i < tab.length ; i += 4){
+    for (let i = 0; i < tab.length; i += 4) {
         const dataTab = tab.slice(i, i + 4)
         dataTabFinal.push(dataTab)
     }
     return dataTabFinal
 }
-const slices = divideData(affichesData)
+
 
 class Slider extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            sliceNumber: 0
+            sliceNumber: 0,
+            slices: []
         };
     }
+
+    componentDidMount() {
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${APIKey}&language=fr-FR&page=4`)
+            .then(response => response.json())
+            .then(data => {
+                const slices = divideData(data.results)
+                this.setState({
+                    slices: slices
+                })
+            });
+    }
+
     handleClickPrev = () => {
-        let prevSliceNumber = this.state.sliceNumber -1
-        if (prevSliceNumber < 0){
-            prevSliceNumber = slices.length - 1
+        let prevSliceNumber = this.state.sliceNumber - 1
+        if (prevSliceNumber < 0) {
+            prevSliceNumber = this.state.slices.length - 1
         }
-        this.setState({ sliceNumber : prevSliceNumber });
+        this.setState({ sliceNumber: prevSliceNumber });
     };
     handleClickNext = () => {
         let nextSliceNumber = this.state.sliceNumber + 1
-        if (nextSliceNumber >= slices.length){
+        if (nextSliceNumber >= this.state.slices.length) {
             nextSliceNumber = 0
         }
-        this.setState({ sliceNumber : nextSliceNumber });
+        this.setState({ sliceNumber: nextSliceNumber });
     };
     render() {
         const sliceNumber = this.state.sliceNumber
         return (
-            <div className="container-fluid">
+            <div className="container-fluid slice-marge">
                 <div id="carouselExampleControls" className="carousel slide" data-ride="carousel" data-interval="false">
                     <div className="carousel-inner">
                         {
-                            slices.map((slice, index) => 
+                            this.state.slices.map((slice, index) =>
                                 <div key={index} className={((sliceNumber === index) ? "active" : "") + "carousel-item text-center"}>
                                     <Affiches affiches={slice} />
                                 </div>
