@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-
-import {APIKey} from './settings'
-
-
-import Slider from "./Slider"
-
+import {APIKey} from './settings';
+import Slider from "./Slider";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import Modal_button from "./Modal/Button_modal";
 
 class App extends Component {
   render() {
@@ -26,8 +21,8 @@ class App extends Component {
         <Slider url={`https://api.themoviedb.org/3/movie/popular?api_key=${APIKey}&language=fr-FR&page=4`}/>
         <h2>Les mieux notés</h2>
         <Slider url={`https://api.themoviedb.org/3/movie/top_rated?api_key=${APIKey}&language=fr-FR&page=4`}/>
->>>>>>> 9d32a82ca61ce72bbc51c3f40647a134abe92182
         <footer>
+        
           <Footer />
         </footer>
       </div>

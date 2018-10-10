@@ -1,29 +1,40 @@
 import React, { Component } from 'react';
-import moviesData from './moviesData.json';
+import Bar from '../starRatings/StarsRatings';
+
 
 class Body_modal extends Component {
+
   render() {
+    const { poster_path, title, overview } = this.props.affiche;
+    /* function testDate({ release_date }) {
+      var dateEN = test;
+      let tabEN = dateEN.split('/').reverse();
+      let dateFR = (tabEN.join('/'));
+      return dateFR;
+    } */
     return (
-      <ul class="p-0">
-        {
-          moviesData.map(function (movie) {
-            if (movie.id === 3) { // 1 ou affiche.id
-              return <div class="modal-body p-0">
-                        <div class="embed-responsive embed-responsive-16by9 rounded">
-                          <iframe class="embed-responsive-item" src={movie.trailer} allowfullscreen></iframe>
-                        </div>
-                      <h2 class="text-center mt-5">{movie.title}</h2>
-                      <h5>Synopsis :</h5> 
-                      <p class="text-justify">{movie.synopsis}</p>
-                      <p>Director : {movie.director}</p>
-                      <p>Release : {movie.release}</p>
-                      <p>Duration : {movie.duration}</p>
-                      <p>Ratings : {movie.ratings}</p> 
-                    </div>
-            }
-          })
-        }
-      </ul>
+
+      <div className="container-fluid">
+        <div className="row p-2">
+          <div className="col-md-6 p-2">
+            <img className="w-100 rounded" src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${poster_path}`} alt={title} />
+          </div>
+          <div className="col-md-6 p-2">
+            <h2 className="text-center">{title}</h2>
+            <p className="text-justify mt-3">{overview}</p>
+            <p>Date de sortie :</p>
+            <p>{title}</p>
+            <div>
+            <p>Notes :</p>
+            <Bar affiche={this.props.affiche}/>
+             </div>
+             <div className="mt-3">
+            <button className="btn btn-secondary mr-3">à voir !</button>
+            <button className="btn btn-secondary">J'aime</button>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 }
