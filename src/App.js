@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <Navbar />
+          <Navbar/>
         </header>
         <h3>Bientôt à l'affiche</h3>
         <Slider url={`https://api.themoviedb.org/3/movie/upcoming?api_key=${APIKey}&language=fr-FR&page=4`}/>
