@@ -1,0 +1,51 @@
+nav {
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #DCDCDC;
+}
+
+.my-moovs {
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
+    color: #bd0026;
+    margin-bottom: 15px;
+}
+
+.my-moovs:hover {
+    color: #bd0026;
+}
+
+.menu-parcourir {
+    color: black;
+    font-size: 18px;
+}
+
+.menu-parcourir:hover {
+    color: black;
+}
+
+.form-control {
+    border: 1px solid #bd0026;
+}
+
+.navbar-collapse {
+    flex-grow: inherit;
+}
+
+.form-inline {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.bouton-go {
+    font-family: 'Pacifico', cursive;
+    color: white;
+    background-color: #bd0026;
+}
+
+.matt-damon {
+    height: 60px;
+    width: 60px;
+}
