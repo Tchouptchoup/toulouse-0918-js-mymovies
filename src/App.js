@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import {APIKey} from './settings'
-import NavBarXL from "./Navbar/NavBarXL";
 import Slider from "./Slider"
 import Navbar from "./Navbar";
 import Footer from "./Footer";
