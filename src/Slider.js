@@ -36,7 +36,6 @@ class Slider extends Component {
         this.setState({
             nbAffiches: nbAffiches
         });
-        console.log(window.innerWidth)
     }
 
     componentDidMount() {
