@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import './Slider.css';
 import Affiches from "./Affiches"
 
+function divideData(tab, nb) {
+    let dataTabFinal = [];
+    for (let i = 0; i < tab.length; i += nb) {
+        const dataTab = tab.slice(i, i + nb)
+        dataTabFinal.push(dataTab)
+    }
+    return dataTabFinal
+}
 
 class Slider extends Component {
     constructor(props) {
@@ -9,17 +17,8 @@ class Slider extends Component {
         this.state = {
             sliceNumber: 0,
             slices: [],
-            nbAffiches: 4
+            data: []
         };
-    }
-
-    divideData(tab) {
-        let dataTabFinal = [];
-        for (let i = 0; i < tab.length; i += this.state.nbAffiches) {
-            const dataTab = tab.slice(i, i + this.state.nbAffiches)
-            dataTabFinal.push(dataTab)
-        }
-        return dataTabFinal
     }
 
     updateDimensions() {
@@ -34,20 +33,20 @@ class Slider extends Component {
             nbAffiches = 1
         }
         this.setState({
-            nbAffiches: nbAffiches
+            slices: divideData(this.state.data, nbAffiches)
         });
     }
 
     componentDidMount() {
-        this.updateDimensions();
         window.addEventListener("resize", this.updateDimensions.bind(this));
         fetch(this.props.url)
             .then(response => response.json())
             .then(data => {
-                const slices = this.divideData(data.results)
                 this.setState({
-                    slices: slices
-                })
+                    data: data.results
+                },
+                () => this.updateDimensions()
+                )
             });
     }
 
