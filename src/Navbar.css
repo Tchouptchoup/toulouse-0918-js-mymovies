@@ -51,3 +51,22 @@ nav {
     height: 60px;
     width: 60px;
 }
+.dropdown-menu {
+    position: absolute; /* postulat de départ */
+  top: 100%; left: 50%; /* à 50%/50% du parent référent */
+  transform: translate(-50%); /* décalage de 50% de sa propre taille */   
+    z-index: -1;
+    display: none;
+    /* float: left; */
+    min-width: 10rem;
+    padding: 0;
+    margin-top:0;
+    font-size: 1.3rem;
+    color: #bd0026;
+    text-align: left;
+    list-style: none;
+    background-color: rgba(255,255,255,0.98);
+/*     background-clip: padding-box;
+ */    border: 1px solid rgba(0,0,0,.15);
+    
+}

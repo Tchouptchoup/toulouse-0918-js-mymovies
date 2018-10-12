@@ -6,7 +6,7 @@ class Body_modal extends Component {
 
   render() {
     const { poster_path, title, overview, release_date } = this.props.affiche;
-    const test = `${release_date}`.split('-').reverse().join('-');
+    const test = `${release_date}`.split('-').reverse().join('-')
    
     return (
 
