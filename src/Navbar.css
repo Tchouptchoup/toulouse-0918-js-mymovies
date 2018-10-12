@@ -5,7 +5,9 @@ nav {
     align-items: center;
     border-bottom: 1px solid #DCDCDC;
 }
-
+.navbar-toggler-icon {
+    background-image: url(images/menu.png);
+}
 .my-moovs {
     font-family: 'Pacifico', cursive;
     font-size: 50px;
@@ -28,10 +30,10 @@ nav {
 
 .form-control {
     border: 1px solid #bd0026;
+    left:left;
 }
 
 .navbar-collapse {
-    flex-grow: inherit;
 }
 
 .form-inline {

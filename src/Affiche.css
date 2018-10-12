@@ -2,3 +2,6 @@
     width: auto;
     max-width: 300px;
 }
+.inline {
+    display: inline-block;
+}
