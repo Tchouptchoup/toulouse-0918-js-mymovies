@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import {
+    Carousel,
+    CarouselItem,
+    CarouselControl,
+    CarouselIndicators,
+    CarouselCaption
+  } from 'reactstrap';
 import './Slider.css';
 import Affiches from "./Affiches"
 
@@ -70,27 +77,29 @@ class Slider extends Component {
     };
     render() {
         const sliceNumber = this.state.sliceNumber
+        const slides = this.state.slices.map((slice, index) =>
+            <CarouselItem
+            onExiting={this.onExiting}
+            onExited={this.onExited}
+            key={index}
+          >
+                <Affiches affiches={slice} />
+            </CarouselItem>
+        )
         return (
             <div className="container-fluid slice-marge pt-3">
-                <div className="carousel slide" data-ride="carousel" data-interval="false">
-                    <div className="carousel-inner">
-                        {
-                            this.state.slices.map((slice, index) =>
-                                <div key={index} className={((sliceNumber === index) ? "active" : "") + "carousel-item text-center"}>
-                                    <Affiches affiches={slice} />
-                                </div>
-                            )
-                        }
-                    </div>
-                    <a className="carousel-control-prev" role="button" onClick={this.handleClickPrev} >
-                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span className="sr-only">Previous</span>
-                    </a>
-                    <a className="carousel-control-next" role="button" onClick={this.handleClickNext} >
-                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span className="sr-only">Next</span>
-                    </a>
-                </div>
+
+                <Carousel interval={false}
+                    activeIndex={sliceNumber}
+                    next={this.handleClickNext}
+                    previous={this.handleClickPrev}
+                >
+                    {/* <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} /> */}
+                    {slides}
+                    <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.handleClickPrev} />
+                    <CarouselControl direction="next" directionText="Next" onClickHandler={this.handleClickNext} />
+                </Carousel>
+                
             </div>
         );
     }
