@@ -1,0 +1,10 @@
+.styles_modal__gNwvD {
+  max-width: 800px;
+  position: relative;
+  padding: 1.2rem;
+  background: light;
+  border-radius:2em 0.1em 2em 2em;
+  background-clip: padding-box;
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.25);
+  margin: auto;
+}
