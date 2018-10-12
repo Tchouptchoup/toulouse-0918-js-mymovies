@@ -1,7 +1,9 @@
 import React, {Component} from "react";
 import './Affiche.css';
+import './Modal/modalTest.css';
 import Modal from "react-responsive-modal";
 import Body_modal from "./Modal/Body_modal";
+import './Modal/mod.css';
 
 
 
@@ -19,13 +21,15 @@ class Affiche extends Component {
     };
   
     render() {
+
     const { poster_path, title, vote_average } = this.props.affiche;
+
       const { open } = this.state;
       return (
           
         <div className="inline rounded">
           <img onClick={this.onOpenModal} className="affiche-size mx-3" src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${poster_path}`} alt={title}></img>
-          <Modal style={{ zIndex: 99 }} open={open} onClose={this.onCloseModal} center>
+          <Modal className="Test" open={open} onClose={this.onCloseModal} center>
             <Body_modal affiche={this.props.affiche}/>
           </Modal>
           </div>

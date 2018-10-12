@@ -1,26 +1,30 @@
-footer
-{
-	background-color: black;
-	padding: 40px 0px;
+footer {
+	background-color: #bd0026;
+	font-family: 'Roboto', sans-serif;
+	margin-top: 40px;
+	padding-top: 5px;
+	padding-bottom: 15px;
 }
 
-footer li a
-{
-	color: #b1aca1;
-	padding: 30px;
+footer li a {
+	color: white;
+	padding: 15px;
+	margin-top: 5px;
 }
 
-.socialNetworks, .menu
-{
-	padding-top: 40px;
+footer li a:hover {
+	color: #dcdcdc;
 }
 
-.copyright
-{
-	background-color: grey;
+.list-inline li {
+	display: inline;
 }
 
-.copyright p
-{
-   margin: 20px;
+.my-moovs-footer {
+	font-family: 'Pacifico', cursive;
+	font-size: 24px;
+}
+
+.copyright {
+	color: white;
 }

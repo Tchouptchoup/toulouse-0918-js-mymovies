@@ -1,9 +1,15 @@
 .carousel-control-prev-icon {
     background-image: url(images/left-icone.png);
-    margin-right: 120px;
 }
 
 .carousel-control-next-icon {
     background-image: url(images/right-icone.png);
-    margin-left: 120px;
+}
+
+.carousel-control-next {
+    width: 6%;
+}
+
+.carousel-control-prev {
+    width: 6%;
 }

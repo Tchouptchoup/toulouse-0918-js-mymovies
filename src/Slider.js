@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
+import {
+    Carousel,
+    CarouselItem,
+    CarouselControl,
+    CarouselIndicators,
+    CarouselCaption
+  } from 'reactstrap';
 import './Slider.css';
-
 import Affiches from "./Affiches"
-// import affichesData from "./affichesData"
 
-function divideData(tab) {
+function divideData(tab, nb) {
     let dataTabFinal = [];
-    for (let i = 0; i < tab.length; i += 4) {
-        const dataTab = tab.slice(i, i + 4)
+    for (let i = 0; i < tab.length; i += nb) {
+        const dataTab = tab.slice(i, i + nb)
         dataTabFinal.push(dataTab)
     }
     return dataTabFinal
 }
-
 
 class Slider extends Component {
     constructor(props) {
@@ -20,18 +24,41 @@ class Slider extends Component {
         this.state = {
             sliceNumber: 0,
             slices: [],
+            data: []
         };
     }
 
+    updateDimensions() {
+        let nbAffiches = 4;
+        if (window.innerWidth > 1041 && window.innerWidth < 1372) {
+            nbAffiches = 3
+        }
+        else if (window.innerWidth > 709 && window.innerWidth < 1040) {
+            nbAffiches = 2
+        }
+        else if (window.innerWidth < 708) {
+            nbAffiches = 1
+        }
+        this.setState({
+            slices: divideData(this.state.data, nbAffiches)
+        });
+    }
+
     componentDidMount() {
+        window.addEventListener("resize", this.updateDimensions.bind(this));
         fetch(this.props.url)
             .then(response => response.json())
             .then(data => {
-                const slices = divideData(data.results)
                 this.setState({
-                    slices: slices
-                })
+                    data: data.results
+                },
+                () => this.updateDimensions()
+                )
             });
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.updateDimensions.bind(this));
     }
 
     handleClickPrev = () => {
@@ -50,27 +77,29 @@ class Slider extends Component {
     };
     render() {
         const sliceNumber = this.state.sliceNumber
+        const slides = this.state.slices.map((slice, index) =>
+            <CarouselItem
+            onExiting={this.onExiting}
+            onExited={this.onExited}
+            key={index}
+          >
+                <Affiches affiches={slice} />
+            </CarouselItem>
+        )
         return (
-            <div className="container-fluid slice-marge pt-3">
-                <div id="carouselExampleControls" className="carousel slide" data-ride="carousel" data-interval="false">
-                    <div className="carousel-inner">
-                        {
-                            this.state.slices.map((slice, index) =>
-                                <div key={index} className={((sliceNumber === index) ? "active" : "") + "carousel-item text-center"}>
-                                    <Affiches affiches={slice} />
-                                </div>
-                            )
-                        }
-                    </div>
-                    <a className="carousel-control-prev" href="#carouselExampleControls" role="button" onClick={this.handleClickPrev} >
-                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span className="sr-only">Previous</span>
-                    </a>
-                    <a className="carousel-control-next" href="#carouselExampleControls" role="button" onClick={this.handleClickNext} >
-                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span className="sr-only">Next</span>
-                    </a>
-                </div>
+            <div className="container-fluid slice-marge pt-3 text-center">
+
+                <Carousel interval={false}
+                    activeIndex={sliceNumber}
+                    next={this.handleClickNext}
+                    previous={this.handleClickPrev}
+                >
+                    {/* <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} /> */}
+                    {slides}
+                    <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.handleClickPrev} />
+                    <CarouselControl direction="next" directionText="Next" onClickHandler={this.handleClickNext} />
+                </Carousel>
+                
             </div>
         );
     }
