@@ -17,14 +17,16 @@ class Body_modal extends Component {
           </div>
           <div className="col-md-6 p-2">
 
-            <h2 className="text-center">{title}</h2>
+            <h2 style={{color:`#bd0026`}} className="text-center">{title}</h2>
             <p className="text-justify mt-3">{overview}</p>
             <p>Date de sortie :</p>
-            <p>{test}</p>
+            <p style={{color:`#bd0026`}} >{test}</p>
 
             <div>
             <p>Notes :</p>
-            <Bar affiche={this.props.affiche}/>
+            
+            <Bar  affiche={this.props.affiche}/>
+           
              </div>
              <div className="mt-3">
             <button className="btn btn-secondary mr-3">à voir !</button>
