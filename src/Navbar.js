@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import mattDamon from "./images/mattDamon.png"
+import mattDamon from "./images/mattDamon.png";
+
+import Menus from "./Menus";
 
 class Navbar extends Component {
   render() {
@@ -34,31 +36,8 @@ class Navbar extends Component {
                 </a>
 
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <div className="row">
-                    <div className="col-6-md col-3-lg">
-                      <a className="dropdown-item" href="#">Action</a>
-                      <a className="dropdown-item" href="#">Aventure</a>
-                      <a className="dropdown-item" href="#">Animation</a>
-                      <a className="dropdown-item" href="#">Crime</a>
-                    </div>
-                    <div class="col-6-md col-3-lg">
-                      <a className="dropdown-item" href="#">Documentaire</a>
-                      <a className="dropdown-item" href="#">Drame</a>
-                      <a className="dropdown-item" href="#">Familiale</a>
-                      <a className="dropdown-item" href="#">Fantastique</a>
-                    </div>
-                    <div class="col-6-md col-3-lg">
-                      <a className="dropdown-item" href="#">Histoire</a>
-                      <a className="dropdown-item" href="#">Horreur</a>
-                      <a className="dropdown-item" href="#">Musique</a>
-                      <a className="dropdown-item" href="#">Thriller</a>
-                    </div>
-                    <div class="col-6-md col-3-lg">
-                      <a className="dropdown-item" href="#">Romance</a>
-                      <a className="dropdown-item" href="#">Science-fiction</a>
-                      <a className="dropdown-item" href="#">Téléfilm</a>
-                      <a className="dropdown-item" href="#">Guerre</a>
-                    </div>
+                  <div>
+                    <Menus />
                   </div>
                 </div>
               </li>
@@ -96,7 +75,7 @@ class Navbar extends Component {
               </form>
 
             </ul>
-              <Link to="/profil"><img className="matt-damon d-none  d-lg-block" src={mattDamon} alt="Smiley face" /></Link>
+            <Link to="/profil"><img className="matt-damon d-none  d-lg-block" src={mattDamon} alt="Smiley face" /></Link>
           </div>
         </nav >
       </div>
