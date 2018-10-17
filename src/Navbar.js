@@ -4,6 +4,7 @@ import './Navbar.css';
 import mattDamon from "./images/mattDamon.png";
 
 import Menus from "./Menus";
+import MenusMobile from "./MenusMobile";
 
 class Navbar extends Component {
   render() {
@@ -31,13 +32,13 @@ class Navbar extends Component {
 
 
               <li className="nav-item parcourir d-none d-lg-block">
-                <a className="nav-link dropdown-toggle  menu-parcourir" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a className="nav-link dropdown-toggle menu-parcourir" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   PARCOURIR
                 </a>
 
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <div>
-                    <Menus />
+                    <Menus id={this.props.id} name={this.props.name} />
                   </div>
                 </div>
               </li>
@@ -48,23 +49,8 @@ class Navbar extends Component {
                   PARCOURIR
                 </button>
 
-                <div style={{ position: 'relative', overflowX: 'auto' }} className=" dropdown-menu mt-2 " aria-labelledby="navbarDropdown">
-                  <button className="btn btn-block" href="#">Action</button>
-                  <button className="btn btn-block" href="#">Aventure</button>
-                  <button className="btn btn-block" href="#">Animation</button>
-                  <button className="btn btn-block" href="#">Crime</button>
-                  <button className="btn btn-block" href="#">Documentaire</button>
-                  <button className="btn btn-block" href="#">Drame</button>
-                  <button className="btn btn-block" href="#">Familiale</button>
-                  <button className="btn btn-block" href="#">Fantastique</button>
-                  <button className="btn btn-block" href="#">Histoire</button>
-                  <button className="btn btn-block" href="#">Horreur</button>
-                  <button className="btn btn-block" href="#">Musique</button>
-                  <button className="btn btn-block" href="#">Thriller</button>
-                  <button className="btn btn-block" href="#">Romance</button>
-                  <button className="btn btn-block" href="#">Science-fiction</button>
-                  <button className="btn btn-block" href="#">Téléfilm</button>
-                  <button className="btn btn-block" href="#">Guerre</button>
+                <div className="dropdown-menu mt-2 text-center" aria-labelledby="navbarDropdown" style={{ zIndex: '10', overflowX: 'auto', position: 'relative' }}>
+                  <MenusMobile id={this.props.id} name={this.props.name} />
                 </div>
               </li>
 

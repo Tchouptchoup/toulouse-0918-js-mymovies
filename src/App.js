@@ -6,7 +6,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Home from "./Home";
 import Profil from "./Profil";
-// import Categories from "./Categories";
+import Categories from "./Categories";
 
 class App extends Component {
   render() {
@@ -17,7 +17,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/profil" component={Profil} />
-            {/* <Route path="/categories" component={Categories} /> */}
+            <Route path="/categories/:name" component={Categories} />
           </Switch>
         </div>
         <footer>

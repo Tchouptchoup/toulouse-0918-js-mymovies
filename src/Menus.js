@@ -5,10 +5,11 @@ import Menu from "./Menu";
 import dataGenres from "./dataGenres"
 
 const Menus = () => (
-    <div>
+    <div className="d-flex flex-wrap">
         {dataGenres.map(genre => (
             <Menu id={genre.id} name={genre.name} />
-        ))}
+        )
+        )}
     </div>
 );
 

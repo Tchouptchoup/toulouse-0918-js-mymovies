@@ -49,8 +49,9 @@ class Slider extends Component {
         fetch(this.props.url)
             .then(response => response.json())
             .then(data => {
+                data = data.results
                 this.setState({
-                    data: data.results
+                    data: data.filter(data => data.poster_path !== null)
                 },
                 () => this.updateDimensions()
                 )
