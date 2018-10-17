@@ -87,7 +87,7 @@ class Slider extends Component {
             </CarouselItem>
         )
         return (
-            <div className="container-fluid slice-marge pt-3">
+            <div className="container-fluid text-center pt-3">
 
                 <Carousel interval={false}
                     activeIndex={sliceNumber}
