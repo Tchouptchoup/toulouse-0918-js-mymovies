@@ -1,3 +1,11 @@
+@media screen and (min-width: 992px) {
+    .navbar {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    }
+}
+
 nav {
     font-family: 'Roboto', sans-serif;
     background-color: white;

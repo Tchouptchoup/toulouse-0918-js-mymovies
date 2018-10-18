@@ -1,5 +1,7 @@
-header {
+@media screen and (min-width: 992px) {
+    header {
     margin-bottom: 140px;
+    }
 }
 
 h3 {

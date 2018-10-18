@@ -52,8 +52,8 @@ class Slider extends Component {
         return null
     }
 
-    componentDidUpdate(prevState) {
-        if (this.state.url !== prevState.url) {
+    componentDidUpdate(nextProps) {
+        if (this.state.url !== nextProps.url) {
             this.fetchMovies()
         }
     }
