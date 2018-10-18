@@ -12,13 +12,23 @@ class Categories extends Component {
             genreName : props.match.params.name
         }
     }
-  componentDidUpdate(){
-      const newGenreName = this.props.match.params.name
-      if (newGenreName !== this.state.genreName){
-          this.setState({genreName : newGenreName})
-          window.location.reload()
+
+  static getDerivedStateFromProps(nextProps, prevState){
+      if (nextProps.match.params.name !== prevState.genreName){
+          return {
+              genreName : nextProps.match.params.name
+          }
       }
+      return null
   }
+    
+//   componentDidUpdate(){
+//       const newGenreName = this.props.match.params.name
+//       if (newGenreName !== this.state.genreName){
+//           this.setState({genreName : newGenreName})
+//       }
+//   }
+
   render() {
       const name = this.state.genreName
       const genre = dataGenres.find(genre => genre.name === name)

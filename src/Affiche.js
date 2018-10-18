@@ -26,7 +26,7 @@ class Affiche extends Component {
       return (
           
         <div className="inline rounded">
-          <img onClick={this.onOpenModal} className="affiche-size mx-3" src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${poster_path}`} alt={title}></img>
+          <img onClick={this.onOpenModal} className="affiche-size mx-3" style={{cursor: 'pointer'}} src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${poster_path}`} alt={title}></img>
           <Modal className="Test" open={open} onClose={this.onCloseModal} center>
             <Body_modal affiche={this.props.affiche}/>
           </Modal>

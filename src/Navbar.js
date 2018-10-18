@@ -36,7 +36,7 @@ class Navbar extends Component {
                   PARCOURIR
                 </a>
 
-                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div className="dropdown-menu menu-desktop" aria-labelledby="navbarDropdown">
                   <div>
                     <Menus id={this.props.id} name={this.props.name} />
                   </div>
@@ -45,7 +45,7 @@ class Navbar extends Component {
 
 
               <li className="nav-item parcourir d-block d-lg-none ">
-                <button className="btn btn-block dropdown-toggle  menu-parcourir mt-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button className="btn btn-block dropdown-toggle menu-parcourir mt-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   PARCOURIR
                 </button>
 
