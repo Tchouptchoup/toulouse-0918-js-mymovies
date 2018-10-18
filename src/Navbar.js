@@ -32,7 +32,7 @@ class Navbar extends Component {
 
 
               <li className="nav-item parcourir d-none d-lg-block">
-                <a className="nav-link dropdown-toggle menu-parcourir" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a className="nav-link dropdown-toggle bouton-parcourir menu-parcourir" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   PARCOURIR
                 </a>
 
@@ -43,9 +43,12 @@ class Navbar extends Component {
                 </div>
               </li>
 
+              <div className="d-block d-lg-none d-xl-none">
+                <Link to="/profil"><button className="btn bouton-profil mt-2" type="submit">MON PROFIL</button></Link>
+              </div>
 
               <li className="nav-item parcourir d-block d-lg-none ">
-                <button className="btn btn-block dropdown-toggle menu-parcourir mt-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button className="btn btn-block dropdown-toggle bouton-parcourir menu-parcourir mt-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   PARCOURIR
                 </button>
 
@@ -61,7 +64,7 @@ class Navbar extends Component {
               </form>
 
             </ul>
-            <Link to="/profil"><img className="matt-damon d-none  d-lg-block" src={mattDamon} alt="Smiley face" /></Link>
+            <Link to="/profil"><img className="matt-damon d-none d-lg-block" src={mattDamon} alt="Smiley face" /></Link>
           </div>
         </nav >
       </div>

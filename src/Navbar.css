@@ -104,3 +104,16 @@ nav {
 .hov-menu-desktop {
     width: 183px;
 }
+
+.bouton-profil {
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+.bouton-profil:hover {
+    color: #bd0026;
+}
+
+.bouton-parcourir:hover {
+    color: #bd0026;
+}
