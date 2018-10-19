@@ -1,9 +1,11 @@
 .carousel-control-prev-icon {
     background-image: url(images/left-icone.png);
+    cursor: pointer;
 }
 
 .carousel-control-next-icon {
     background-image: url(images/right-icone.png);
+    cursor: pointer;
 }
 
 .carousel-control-next {

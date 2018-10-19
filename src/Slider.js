@@ -3,9 +3,7 @@ import {
     Carousel,
     CarouselItem,
     CarouselControl,
-    CarouselIndicators,
-    CarouselCaption
-  } from 'reactstrap';
+} from 'reactstrap';
 import './Slider.css';
 import Affiches from "./Affiches"
 
@@ -24,7 +22,8 @@ class Slider extends Component {
         this.state = {
             sliceNumber: 0,
             slices: [],
-            data: []
+            data: [],
+            url: props.url
         };
     }
 
@@ -44,21 +43,42 @@ class Slider extends Component {
         });
     }
 
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (nextProps.url !== prevState.url) {
+            return {
+                url: nextProps.url
+            }
+        }
+        return null
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.state.url !== prevProps.url) {
+            this.fetchMovies()
+        }
+    }
+
     componentDidMount() {
         window.addEventListener("resize", this.updateDimensions.bind(this));
-        fetch(this.props.url)
+        this.fetchMovies()
+    }
+
+    fetchMovies = () => {
+        fetch(this.state.url)
             .then(response => response.json())
             .then(data => {
+                data = data.results
                 this.setState({
-                    data: data.results
+                    data: data.filter(data => data.poster_path !== null)
                 },
-                () => this.updateDimensions()
+                    () => this.updateDimensions()
                 )
             });
     }
 
     componentWillUnmount() {
         window.removeEventListener("resize", this.updateDimensions.bind(this));
+        this.fetchMovies()
     }
 
     handleClickPrev = () => {
@@ -79,10 +99,10 @@ class Slider extends Component {
         const sliceNumber = this.state.sliceNumber
         const slides = this.state.slices.map((slice, index) =>
             <CarouselItem
-            onExiting={this.onExiting}
-            onExited={this.onExited}
-            key={index}
-          >
+                onExiting={this.onExiting}
+                onExited={this.onExited}
+                key={index}
+            >
                 <Affiches affiches={slice} />
             </CarouselItem>
         )
@@ -94,12 +114,11 @@ class Slider extends Component {
                     next={this.handleClickNext}
                     previous={this.handleClickPrev}
                 >
-                    {/* <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} /> */}
                     {slides}
                     <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.handleClickPrev} />
                     <CarouselControl direction="next" directionText="Next" onClickHandler={this.handleClickNext} />
                 </Carousel>
-                
+
             </div>
         );
     }
