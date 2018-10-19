@@ -44,6 +44,7 @@ nav {
 .form-inline {
     display: flex;
     flex-wrap: nowrap;
+    margin-top: 14px;
 }
 
 .bouton-go {
@@ -116,4 +117,7 @@ nav {
 
 .bouton-parcourir:hover {
     color: #bd0026;
+}
+.bouton-parcourir {
+    margin-top: 14px;
 }

@@ -5,6 +5,7 @@ import mattDamon from "./images/mattDamon.png";
 
 import Menus from "./Menus";
 import MenusMobile from "./MenusMobile";
+import BarreDeRecherche from './BarreDeRecherche';
 
 class Navbar extends Component {
   render() {
@@ -58,10 +59,7 @@ class Navbar extends Component {
               </li>
 
 
-              <form className="form-inline ml-3 d-none d-lg-block">
-                <input style={{ width: '450px' }} className="form-control mr-sm-2" type="search" placeholder="Rechercher un film" aria-label="Search" />
-                <button className="btn bouton-go mx-2" type="submit">GO !</button>
-              </form>
+              <BarreDeRecherche action={this.props.receiveSearchResults}/>
 
             </ul>
             <Link to="/profil"><img className="matt-damon d-none d-lg-block" src={mattDamon} alt="Smiley face" /></Link>

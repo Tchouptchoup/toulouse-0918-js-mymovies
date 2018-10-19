@@ -21,13 +21,6 @@ class Categories extends Component {
       }
       return null
   }
-    
-//   componentDidUpdate(){
-//       const newGenreName = this.props.match.params.name
-//       if (newGenreName !== this.state.genreName){
-//           this.setState({genreName : newGenreName})
-//       }
-//   }
 
   render() {
       const name = this.state.genreName
