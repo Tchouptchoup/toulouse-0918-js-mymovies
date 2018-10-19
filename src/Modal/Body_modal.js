@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Bar from '../starRatings/StarsRatings';
-
-
+import AddMovie from './AddButtonList'
+import LikedMovie from './likedButton'
+import './Body_modal.css';
 class Body_modal extends Component {
 
   render() {
@@ -29,10 +30,8 @@ class Body_modal extends Component {
            
              </div>
              <div className="mt-3">
-            <button className="btn btn-secondary mr-3">à voir !</button>
-            <button className="btn btn-secondary">J'aime</button>
-            <p style={{color:`#bd0026`}} className="mt-3">Ce film est déjà dans votre liste de favoris</p>
-            <p style={{color:`#bd0026`}} className="mt-3">Vous venez d'ajouter ce film dans votre liste de films à voir</p>
+            <AddMovie affiche={this.props.affiche} />
+            <LikedMovie affiche={this.props.affiche}>J'aime</LikedMovie>
             </div>
           </div>
         </div>

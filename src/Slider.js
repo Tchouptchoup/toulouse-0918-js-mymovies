@@ -87,11 +87,7 @@ class Slider extends Component {
             </CarouselItem>
         )
         return (
-<<<<<<< HEAD
             <div className="container-fluid text-center pt-3">
-=======
-            <div className="container-fluid slice-marge pt-3 text-center">
->>>>>>> dev
 
                 <Carousel interval={false}
                     activeIndex={sliceNumber}

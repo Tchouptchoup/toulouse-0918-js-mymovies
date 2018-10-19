@@ -1,0 +1,28 @@
+.rectangle
+{
+	height: 200px;
+	border: solid 1px #BA0025;
+	border-radius: 5px;
+}
+ .description
+{
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 5px;
+}
+ .nav_movies
+{
+	color: #BA0025;
+}
+ .nav_movies:hover
+{
+	color: black;
+}
+ .rectangle
+{
+	overflow: auto;
+}
+/*  .affiches_size
+{
+	text-align: center;
+}  */
