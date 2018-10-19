@@ -52,7 +52,6 @@ class Profil extends Component {
 	    				.map(movie => (
 						<img className="img-fluid p-1" src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${movie.poster_path}`} alt={movie.title} />))}
 				</div>
-    			<br />
     		</Container>	
     	</div>
     );
