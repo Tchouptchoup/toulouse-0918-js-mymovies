@@ -1,3 +1,11 @@
+@media screen and (min-width: 992px) {
+    .navbar {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    }
+}
+
 nav {
     font-family: 'Roboto', sans-serif;
     background-color: white;
@@ -33,9 +41,6 @@ nav {
     left:left;
 }
 
-.navbar-collapse {
-}
-
 .form-inline {
     display: flex;
     flex-wrap: nowrap;
@@ -51,22 +56,64 @@ nav {
     height: 60px;
     width: 60px;
 }
+
 .dropdown-menu {
-    position: absolute; /* postulat de départ */
-  top: 100%; left: 50%; /* à 50%/50% du parent référent */
-  transform: translate(-50%); /* décalage de 50% de sa propre taille */   
+    position: absolute;
+    top: 100%; left: 50%;
+    transform: translate(-50%);
     z-index: -1;
     display: none;
-    /* float: left; */
     min-width: 10rem;
-    padding: 0;
+    padding: 10px;;
     margin-top:0;
     font-size: 1.3rem;
     color: #bd0026;
     text-align: left;
     list-style: none;
     background-color: rgba(255,255,255,0.98);
-/*     background-clip: padding-box;
- */    border: 1px solid rgba(0,0,0,.15);
-    
+    border: 1px solid rgba(0,0,0,.15);
+}
+
+.menu-desktop {
+    position: absolute;
+    top: 100%; left: 40%;
+    transform: translate(-50%);
+    z-index: -1;
+    display: none;
+    min-width: 10rem;
+    padding: 10px;;
+    margin-top:0;
+    font-size: 1.3rem;
+    color: #bd0026;
+    text-align: left;
+    list-style: none;
+    background-color: rgba(255,255,255,0.98);
+    border: 1px solid rgba(0,0,0,.15);
+    width: 50%;
+}
+
+.btn-mobile:hover {
+    color: #bd0026;
+}
+
+.hov-menu-desktop:hover {
+    color: white;
+    background-color: #bd0026;
+}
+
+.hov-menu-desktop {
+    width: 183px;
+}
+
+.bouton-profil {
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+.bouton-profil:hover {
+    color: #bd0026;
+}
+
+.bouton-parcourir:hover {
+    color: #bd0026;
 }

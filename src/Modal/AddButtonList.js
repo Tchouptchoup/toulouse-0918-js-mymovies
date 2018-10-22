@@ -5,6 +5,7 @@ import { Button } from 'reactstrap';
         super(props);
         const list = JSON.parse(localStorage.getItem('test'))
         this.state = {
+            seen:true,
             list: list !== null ? list : []
         };
     }
@@ -18,10 +19,11 @@ import { Button } from 'reactstrap';
         });
     }
      render() {
+         const {test} = this.state.list
         return (
             <div>
-                <Button className="mb-2"
-                    onClick={() => this.addMovie()}>ajouter à ma liste</Button>
+                <Button className="mb-2 btn-primary"
+                    onClick={() => this.addMovie()}>Ajouter à ma liste</Button>
             </div>
         );
     }

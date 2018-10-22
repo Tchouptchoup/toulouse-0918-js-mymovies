@@ -15,13 +15,15 @@ import '../Profil.css';
         const list = [...this.state.list];
         const newList = list.filter(test => test.id !== id);
         this.setState({ list: newList });
+        localStorage.setItem("test", JSON.stringify(newList));
       }
 
      render() {
+         const {list} = this.state
         return (
             <div>
                 <Button block className="mb-2 p-1 btn-primary"
-                    onClick={() => this.deleteMovie(test.id)}>Supprimer de ma liste</Button>
+                    onClick={() => this.deleteMovie(this.props.movie.id)}>Supprimer de ma liste</Button>
             </div>
         );
     }
