@@ -121,3 +121,11 @@ nav {
 .bouton-parcourir {
     margin-top: 14px;
 }
+
+.resultats-recherche {
+    display: inline-block;
+}
+
+.image-recherche {
+    margin: 20px;
+}

@@ -22,11 +22,12 @@ class BarreDeRecherche extends Component {
             );
     }
 
-    goToSearchResults = () => {
-        if (!this.state.value){
+    goToSearchResults = (event) => {
+        if (!this.state.value) {
             return;
         }
         this.props.history.push("/recherche")
+        event.preventDefault()
     }
 
     render() {
