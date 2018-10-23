@@ -7,7 +7,8 @@ import { Button } from 'reactstrap';
         super(props);
         const list = JSON.parse(localStorage.getItem('test'))
         this.state = {
-            list: list !== null ? list : []
+            list: list !== null ? list : [],
+            isButtonDisabled: false
         };
     }
     
@@ -17,14 +18,15 @@ import { Button } from 'reactstrap';
         let newarray = this.state.list.concat([newtest])
         localStorage.setItem('test', JSON.stringify(newarray));
         this.setState({
-            list: newarray
+            list: newarray,
+            isButtonDisabled: true
         });
     }
      render() {
         return (
             <div>
                 <Button className="mb-2 btn-primary"
-                    onClick={() => this.likedMovie()}>J'aime !</Button>
+                    onClick={() => this.likedMovie()} disabled={this.state.isButtonDisabled}>J'aime !</Button>
             </div>
         );
     }

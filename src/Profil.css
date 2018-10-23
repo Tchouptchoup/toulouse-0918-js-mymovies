@@ -1,9 +1,4 @@
-.rectangle
-{
-	height: 200px;
-	border: solid 1px #BA0025;
-	border-radius: 5px;
-}
+
  .description
 {
 	margin-left: 10px;
@@ -49,30 +44,25 @@
 
 .img_profil
 {
-	width: 250px;
+	width: 200px;
 }
 
-.nav_movies
+@media screen and (max-width: 414px)
 {
-	color: white;
-	background-color: #F2F1F0;
-	margin: 10px;
-}
-
-.nav_movies:hover, .nav-pills:hover .nav-link.active:hover
-{
-	color: white;
-}
-
-@media screen and (max-width: 774px)
-{
-	.navigation_links
+	.btn
 	{
 		display: block;
 		text-align: center;
+		width:100%;
 	}
-}
+	.phone-center {
+		text-align:center;
+	}
 
+}
+.test{
+	width:50%;
+}
 .rectangle
 {
 	overflow: auto;
@@ -96,4 +86,23 @@
 .nav-pills .nav-link.active
 {
 	background-color: #BA0025;
+}
+.btn-test {
+    color: #fff;
+    font-family: 'Pacifico', cursive;
+    font-size:1.2rem;
+    background-color: #9fa9ad;
+    border-color: #9fa9ad;
+    
+}
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #bd0026;
+    border-color: #bd0026;
+
+}
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+    color: #fff;
+    background-color: #bd0026;
+	border-color: #bd0026;
 }
