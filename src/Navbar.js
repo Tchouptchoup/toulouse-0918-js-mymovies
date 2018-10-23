@@ -59,7 +59,7 @@ class Navbar extends Component {
               </li>
 
 
-              <BarreDeRecherche action={this.props.receiveSearchResults}/>
+              <BarreDeRecherche action={this.props.receiveSearchResults} />
 
             </ul>
             <Link to="/profil"><img className="matt-damon d-none d-lg-block" src={mattDamon} alt="Smiley face" /></Link>

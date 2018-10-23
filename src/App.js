@@ -10,17 +10,17 @@ import Categories from "./Categories";
 import PageRecherche from './PageRecherche';
 
 class App extends Component {
-  constructor (props){
-    super (props);
+  constructor(props) {
+    super(props);
     this.state = {
-      dataRecherche: []
+      dataRecherche: [],
     }
     this.receiveSearchResults = this.receiveSearchResults.bind(this)
   }
 
   receiveSearchResults(results) {
     this.setState({
-      dataRecherche: results
+      dataRecherche: results,
     })
   }
 
@@ -28,7 +28,7 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <Navbar receiveSearchResults={this.receiveSearchResults}/>
+          <Navbar receiveSearchResults={this.receiveSearchResults} />
         </header>
         <div>
           <Switch>

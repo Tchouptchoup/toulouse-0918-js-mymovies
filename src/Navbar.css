@@ -129,3 +129,9 @@ nav {
 .image-recherche {
     margin: 20px;
 }
+
+.suggestions {
+    list-style: none;
+    margin-left: -30px;
+    margin-top: 10px;
+}
