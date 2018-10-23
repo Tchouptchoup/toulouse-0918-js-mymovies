@@ -7,12 +7,19 @@ import dataGenres from "./dataGenres"
 import Bar from './starRatings/StarsRatings';
 
 
+const MOVIE_FILTERS = {
+  'BY_TOSEE': movie => movie.toSee,
+  'BY_LIKED': movie => movie.liked,
+  'ALL': () => true
+};
+
 class Profil extends Component {
   constructor(props) {
     super(props);
     const list = JSON.parse(localStorage.getItem('test'))
     this.state = {
       list: list !== null ? list : [],
+      filterKey : 'ALL'
     };
   }
 
@@ -20,12 +27,22 @@ class Profil extends Component {
     const list = [...this.state.list];
     const newList = list.filter(test => test.id !== id);
     this.setState({ list: newList });
-    this.setState({on: !this.state.on})
     localStorage.setItem("test", JSON.stringify(newList));
   }
+ /*  likedArray() {
+    const list = [...this.state.list];
+    const newList = list.filter(test => test.liked === true);
+    this.setState({ list: newList });
+  }
+  toSeeArray() {
+    const list = [...this.state.list];
+    const newList = list.filter(test => test.toSee === true);
+    this.setState({ list: newList });
+  } */
 
   render() {
-    const { list } = this.state
+    const { list, filterKey } = this.state
+    const filteredList = list.filter(MOVIE_FILTERS[filterKey]);
     return (
       <div className="bg-light">
         <Container>
@@ -44,23 +61,15 @@ class Profil extends Component {
           <br />
           <Row>
             <Col xs="12" md="12">
-              <Nav pills className="navigation_links">
-                <NavItem>
-                  <NavLink className="nav_movies" href="#" active>Tout</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink className="nav_movies bg-secondary" href="#">Mes films favoris</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink className="nav_movies bg-secondary" href="#">Les films que je dois voir</NavLink>
-                </NavItem>
-              </Nav>
+            
+                  <Button active={filterKey === 'ALL'} onClick={() => this.setState({filterKey: 'ALL'})} className="nav_movies bg-secondary">Tout</Button>
+                  <Button active={filterKey === 'BY_LIKED'} onClick={() => this.setState({filterKey: 'BY_LIKED' })} className="nav_movies bg-secondary">J'aime !</Button>
+                  <Button active={filterKey === 'BY_TOSEE'} onClick={() => this.setState({filterKey: 'BY_TOSEE' })} className="nav_movies bg-secondary">Films ajoutés à ma liste</Button>
             </Col>
           </Row>
           <br />
           <div className="affiches_size">
-            {list.filter(movie => movie !== null)
-              .map(movie => (
+            {filteredList.map(movie => (
                 <div>
                   <Row className="mt-2">
                     <Col xs="12" sm="3" md="3">

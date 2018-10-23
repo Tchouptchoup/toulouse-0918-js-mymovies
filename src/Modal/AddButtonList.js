@@ -5,14 +5,14 @@ import { Button } from 'reactstrap';
         super(props);
         const list = JSON.parse(localStorage.getItem('test'))
         this.state = {
-            seen:true,
             list: list !== null ? list : []
         };
     }
     
     addMovie() {
-        let test = this.props.affiche;
-        let newarray = this.state.list.concat([test])
+        const test = this.props.affiche;
+        let newtest = Object.assign(test, {toSee:true},{liked:false});
+        const newarray = this.state.list.concat([newtest]);
         localStorage.setItem('test', JSON.stringify(newarray));
         this.setState({
             list: newarray

@@ -13,8 +13,8 @@ import { Button } from 'reactstrap';
     
     likedMovie() {
         const test = this.props.affiche;
-        const movie = Object.assign(test,{like:true, seen:false})
-        let newarray = this.state.list.concat([movie])
+        const newtest = Object.assign(test,{liked:true},{toSee:false})
+        let newarray = this.state.list.concat([newtest])
         localStorage.setItem('test', JSON.stringify(newarray));
         this.setState({
             list: newarray
