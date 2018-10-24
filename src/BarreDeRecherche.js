@@ -73,8 +73,8 @@ class BarreDeRecherche extends Component {
                             value={this.state.value}
                         />
                         <button onClick={this.goToSearchResults} className="btn bouton-go mx-2" type="submit">GO !</button>
-                        <Suggestions results={this.state.results} value={this.state.value} action={this.handler.bind(this)} />
                     </FormGroup>
+                    {this.state.value && <Suggestions results={this.state.results} value={this.state.value} action={this.handler.bind(this)} />}
                 </Form>
             </div>
         )
