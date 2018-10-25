@@ -4,9 +4,23 @@ import AddMovie from './AddButtonList'
 import LikedMovie from './likedButton'
 import './Body_modal.css';
 class Body_modal extends Component {
-
+  constructor(props) {
+    super(props);
+    const list = JSON.parse(localStorage.getItem('test'))
+    this.state = {
+      idExpanded: 0
+    };
+  }
+  readMoreReadLess(id) {
+    const currentIdExpanded = this.state.idExpanded;
+    if (currentIdExpanded === id) {
+      this.setState({ idExpanded: 0 })
+    } else {
+      this.setState({ idExpanded: id })
+    }
+  }
   render() {
-    const { poster_path, title, overview, release_date } = this.props.affiche;
+    const { id, poster_path, title, overview, release_date } = this.props.affiche;
     const test = `${release_date}`.split('-').reverse().join('-')
     
     return (
@@ -19,7 +33,16 @@ class Body_modal extends Component {
           <div className="col-md-6 p-2">
 
             <h2 style={{color:`#bd0026`}} className="text-center">{title}</h2>
-            <p className="text-justify mt-3">{overview}</p>
+            
+            <p className="mt-2 text-justify">
+                      {this.state.idExpanded === id ? overview : overview.substr(0, 280)}...
+                      <a
+                        onClick={() => this.readMoreReadLess(id)}
+                        style={{ color: `#bd0026`, cursor:'pointer' }}>
+                        {this.state.idExpanded === id ? ' lire moins' : ' lire plus'}
+                      </a>
+                    </p>
+
             <p>Date de sortie :</p>
             <p style={{color:`#bd0026`}} >{test}</p>
 
