@@ -118,6 +118,33 @@ nav {
 .bouton-parcourir:hover {
     color: #bd0026;
 }
+
+
+.btn-mobile:hover {
+    color: #bd0026;
+}
+
+.hov-menu-desktop:hover {
+    color: white;
+    background-color: #bd0026;
+}
+
+.hov-menu-desktop {
+    width: 183px;
+}
+
+.bouton-profil {
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+.bouton-profil:hover {
+    color: #bd0026;
+}
+
+.bouton-parcourir:hover {
+    color: #bd0026;
+}
 .bouton-parcourir {
     margin-top: 14px;
 }
