@@ -82,7 +82,6 @@ class Profil extends Component {
                     </p>
 
                     <p>Date de sortie : <span style={{ color: `#bd0026` }}>{movie.release_date.split('-').reverse().join('-')}</span></p>
-                    <p>Genre : <span style={{ color: `#bd0026` }}>{movie.genres_ids}</span></p>
                     <br />
                   </Col>
                   <Col xs="12" sm="12" md="3">
