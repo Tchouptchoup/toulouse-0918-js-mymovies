@@ -6,13 +6,14 @@ class AddMovie extends Component {
     constructor(props) {
         super(props);
         const movies = JSON.parse(localStorage.getItem('test'))
+        const list = movies !== null ? movies : [];
         const propsMovie = this.props.affiche;
-        const storedMovie = movies.find(function (movie){
+        const storedMovie = list.find(function (movie){
             return movie.id === propsMovie.id;
         })
         const isButtonDisabled = storedMovie !== undefined;
         this.state = {
-            list: movies !== null ? movies : [],
+            list: list,
             isButtonDisabled: isButtonDisabled
         };
     }

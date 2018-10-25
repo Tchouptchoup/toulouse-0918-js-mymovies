@@ -35,7 +35,7 @@ class Body_modal extends Component {
             <h2 style={{color:`#bd0026`}} className="text-center">{title}</h2>
             
             <p className="mt-2 text-justify">
-                      {(this.state.idExpanded === id) || (overview.length <= 280) ? overview : overview.substr(0, 280)}...
+                      {(this.state.idExpanded === id) || (overview.length <= 280) ? overview : overview.substr(0, 280)}
                       {overview.length > 280 &&<a 
                         onClick={() => this.readMoreReadLess(id)}
                         style={{ color: `#bd0026`, cursor:'pointer' }}>
