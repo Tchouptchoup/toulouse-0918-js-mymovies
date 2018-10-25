@@ -9,7 +9,7 @@ class Bar extends Component {
       <StarRatings 
         rating={`${vote_average}`/2}
         starDimension="2rem"
-        starSpacing="1rem"
+        starSpacing=".5rem"
       />
     );
   }
