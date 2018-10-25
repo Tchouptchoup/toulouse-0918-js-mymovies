@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
+
+
 class AddMovie extends Component {
     constructor(props) {
         super(props);
-        const list = JSON.parse(localStorage.getItem('test'))
+        const movies = JSON.parse(localStorage.getItem('test'))
+        const propsMovie = this.props.affiche;
+        const storedMovie = movies.find(function (movie){
+            return movie.id === propsMovie.id;
+        })
+        const isButtonDisabled = storedMovie !== undefined;
         this.state = {
-            list: list !== null ? list : [],
-            isButtonDisabled: false
+            list: movies !== null ? movies : [],
+            isButtonDisabled: isButtonDisabled
         };
     }
 
@@ -17,7 +24,7 @@ class AddMovie extends Component {
         localStorage.setItem('test', JSON.stringify(newarray));
         this.setState({
             list: newarray,
-            isButtonDisabled: true
+            isButtonDisabled:true
 
         });
     }
