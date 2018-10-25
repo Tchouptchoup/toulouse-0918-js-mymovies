@@ -44,6 +44,7 @@ nav {
 .form-inline {
     display: flex;
     flex-wrap: nowrap;
+    margin-top: 14px;
 }
 
 .bouton-go {
@@ -116,4 +117,71 @@ nav {
 
 .bouton-parcourir:hover {
     color: #bd0026;
+}
+.bouton-parcourir {
+    margin-top: 14px;
+}
+
+.resultats-recherche {
+    display: inline-block;
+}
+
+.image-recherche {
+    margin: 20px;
+}
+
+@media screen and (min-width: 992px) {
+.suggestions {
+    list-style: none;
+    margin-top: 24px;
+    position: fixed;
+    width: 490px;
+    background-color: white;
+    border-bottom: 1px solid #DCDCDC;
+    border-left: 1px solid #DCDCDC;
+    border-right: 1px solid #DCDCDC;
+}
+
+.suggestions-liste {
+    position: relative;
+    padding-bottom: 5px;
+    margin-left: -15px;
+}
+}
+
+.suggestions-liste:hover {
+    color: #bd0026;
+}
+
+@media screen and (min-width: 576px) and (max-width: 991px) {
+    .suggestions {
+        list-style: none;
+        margin-top: 8px;
+        width: 95%;
+        background-color: white;
+    }
+    
+    .suggestions-liste {
+        position: relative;
+        padding-bottom: 5px;
+        margin-left: -15px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .form-inline {
+        margin-top: -10px;
+    }
+    .suggestions {
+        list-style: none;
+        margin-top: 8px;
+        width: 95%;
+        background-color: white;
+    }
+    
+    .suggestions-liste {
+        position: relative;
+        padding-bottom: 5px;
+        margin-left: -15px;
+    }
 }
