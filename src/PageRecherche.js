@@ -6,7 +6,8 @@ const PageRecherche = ({ dataRecherche }) => (
         <h3>Recherche : résultats</h3>
         <div className="text-center">
             {dataRecherche && dataRecherche.filter(data => data.poster_path !== null).sort().map(recherche => (
-                <Resultat  key={recherche.id} poster_path={recherche.poster_path} title={recherche.title}/>))}
+                <Resultat dataRecherche={recherche} key={recherche.id} poster_path={recherche.poster_path} title={recherche.title} />))}
+
         </div>
     </div>
 )

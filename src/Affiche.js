@@ -5,8 +5,6 @@ import Modal from "react-responsive-modal";
 import Body_modal from "./Modal/Body_modal";
 import './Modal/mod.css';
 
-
-
 class Affiche extends Component {
     state = {
       open: false

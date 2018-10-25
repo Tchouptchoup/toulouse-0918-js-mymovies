@@ -5,7 +5,6 @@ import Modal from "react-responsive-modal";
 import Body_modal from "./Modal/Body_modal";
 import './Modal/mod.css';
 
-
 class Resultat extends Component {
     state = {
         open: false
@@ -20,17 +19,16 @@ class Resultat extends Component {
     };
 
     render() {
-        const { poster_path, title, vote_average } = this.props.recherche;
-
-        const { open } = this.state;
         return (
-
-            <div className="resultats-recherche">
-                <img className="image-recherche" alt={title} src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${poster_path}`} />
-                <Modal className="Test" open={open} onClose={this.onCloseModal} center>
+            <div className="resultats-recherche inline rounded">
+                <img onClick={this.onOpenModal} style={{cursor: 'pointer'}} className="image-recherche" alt={this.props.title} src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${this.props.poster_path}`} />
+                <Modal className="Test" open={this.state.open} onClose={this.onCloseModal} center>
+                    <Body_modal affiche={this.props.dataRecherche} />
                 </Modal>
             </div>
-        )
+
+        );
     }
 }
+
 export default Resultat;
