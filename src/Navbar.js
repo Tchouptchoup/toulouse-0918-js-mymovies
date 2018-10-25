@@ -5,6 +5,8 @@ import mattDamon from "./images/mattDamon.png";
 
 import Menus from "./Menus";
 import MenusMobile from "./MenusMobile";
+import BarreDeRecherche from './BarreDeRecherche';
+import BarreDeRechercheMini from './BarreDeRechercheMini';
 
 class Navbar extends Component {
   render() {
@@ -17,19 +19,6 @@ class Navbar extends Component {
           </button>
           <div className="collapse navbar-collapse " id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
-
-
-              <form className="form-inline d-block d-sm-none">
-                <input className="form-control" type="search" placeholder="Rechercher un film" aria-label="Search" />
-                <button className="btn bouton-go btn-block mt-2" type="submit">GO !</button>
-              </form>
-
-
-              <form className="form-inline d-none d-sm-block d-lg-none">
-                <input style={{ width: '100%' }} className="form-control mr-sm-2" type="search" placeholder="Rechercher un film" aria-label="Search" />
-                <button className="btn bouton-go btn-block mt-2" type="submit">GO !</button>
-              </form>
-
 
               <li className="nav-item parcourir d-none d-lg-block">
                 <a className="nav-link dropdown-toggle bouton-parcourir menu-parcourir" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -58,10 +47,8 @@ class Navbar extends Component {
               </li>
 
 
-              <form className="form-inline ml-3 d-none d-lg-block">
-                <input style={{ width: '450px' }} className="form-control mr-sm-2" type="search" placeholder="Rechercher un film" aria-label="Search" />
-                <button className="btn bouton-go mx-2" type="submit">GO !</button>
-              </form>
+              <BarreDeRecherche action={this.props.receiveSearchResults} />
+              <BarreDeRechercheMini action={this.props.receiveSearchResults} />
 
             </ul>
             <Link to="/profil"><img className="matt-damon d-none d-lg-block" src={mattDamon} alt="Smiley face" /></Link>
