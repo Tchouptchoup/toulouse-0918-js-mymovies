@@ -43,7 +43,7 @@ class Profil extends Component {
         <Container className="phone-center">
           <Row>
             <Col sm="12" md="3">
-              <img className="img_profil img-fluid img-thumbnail mt-4" src={mattDamon} alt="Photo de profil" />
+              <img className="img_profil img-fluid img-thumbnail mt-4" src={mattDamon} alt="Photo de profil" /></img>
             </Col>
             <Col sm="12" md="7">
               <h1 className="mt-5">John Doe</h1>
@@ -57,8 +57,8 @@ class Profil extends Component {
           <Row>
             <Col xs="12" md="12">
               <Button active={filterKey === 'ALL'} onClick={() => this.setState({ filterKey: 'ALL' })} className="btn btn-test mr-2 mt-2">Tout</Button>
-              <Button active={filterKey === 'BY_LIKED'} onClick={() => this.setState({ filterKey: 'BY_LIKED' })} className="btn btn-test mr-2 mt-2">J'aime !</Button>
-              <Button active={filterKey === 'BY_TOSEE'} onClick={() => this.setState({ filterKey: 'BY_TOSEE' })} className="btn btn-test mt-2">Films ajoutés à ma liste</Button>
+              <Button active={filterKey === 'BY_LIKED'} onClick={() => this.setState({ filterKey: 'BY_LIKED' })} className="btn btn-test mr-2 mt-2">j'aime !</Button>
+              <Button active={filterKey === 'BY_TOSEE'} onClick={() => this.setState({ filterKey: 'BY_TOSEE' })} className="btn btn-test mt-2">à voir !</Button>
             </Col>
           </Row>
           <br />
@@ -74,10 +74,10 @@ class Profil extends Component {
 
                     <p className="mt-2 text-justify">
                       {(this.state.idExpanded === movie.id) || (movie.overview.length <= 280) ? movie.overview : movie.overview.substr(0, 280)}...
-                      {movie.overview.length > 280 &&<a 
+                      {movie.overview.length > 280 && <a
                         onClick={() => this.readMoreReadLess(movie.id)}
-                        style={{ color: `#bd0026`, cursor:'pointer' }}>
-                        {this.state.idExpanded === movie.id  ? ' lire moins' : ' lire plus'}
+                        style={{ color: `#bd0026`, cursor: 'pointer' }}>
+                        {this.state.idExpanded === movie.id ? ' lire moins' : ' lire plus'}
                       </a>}
                     </p>
 

@@ -6,7 +6,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <h3>Bientôt à l&apos;affiche</h3>
+        <h3>À l&apos;affiche</h3>
         <Slider url={`https://api.themoviedb.org/3/movie/upcoming?api_key=${APIKey}&language=fr-FR&page=1`}/>
         <h3>Les plus populaires</h3>
         <Slider url={`https://api.themoviedb.org/3/movie/popular?api_key=${APIKey}&language=fr-FR&page=1`}/>

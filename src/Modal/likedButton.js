@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 
-
 class LikedMovie extends Component {
+
     constructor(props) {
         super(props);
         const movies = JSON.parse(localStorage.getItem('test'))
@@ -10,8 +10,9 @@ class LikedMovie extends Component {
         const propsMovie = this.props.affiche;
         const storedMovie = list.find(function (movie) {
             return movie.id === propsMovie.id;
-        })
-        const isButtonDisabled = storedMovie !== undefined;
+        }),
+
+        const isButtonDisabled = storedMovie && storedMovie.liked;
         this.state = {
             list: list,
             isButtonDisabled: isButtonDisabled
@@ -19,12 +20,24 @@ class LikedMovie extends Component {
     }
 
     likedMovie() {
-        const test = this.props.affiche;
-        const newtest = Object.assign(test, { liked: true }, { toSee: false })
-        let newarray = this.state.list.concat([newtest])
-        localStorage.setItem('test', JSON.stringify(newarray));
+        const propsMovie = this.props.affiche;
+        let newMovie = this.state.list.find(function (movie) {
+            return movie.id === propsMovie.id;
+        })
+        let newArray
+        if (newMovie) {
+            const movieIndex = this.state.list.indexOf(newMovie)
+            newMovie = Object.assign(newMovie, { liked: true })
+            newArray = [...this.state.list]
+            newArray.splice(movieIndex, 1, newMovie)
+        }
+        else {
+            newMovie = Object.assign(propsMovie, { liked: true }, { toSee: false })
+            newArray = [...this.state.list, (newMovie)]
+        }
+        localStorage.setItem('test', JSON.stringify(newArray));
         this.setState({
-            list: newarray,
+            list: newArray,
             isButtonDisabled: true
         });
 
@@ -33,7 +46,7 @@ class LikedMovie extends Component {
         return (
             <div>
                 <Button className="mb-2 btn-primary"
-                    onClick={() => this.likedMovie()} disabled={this.state.isButtonDisabled}>J'aime !</Button>
+                    onClick={() => this.likedMovie()} disabled={this.state.isButtonDisabled}>j'aime !</Button>
             </div>
         );
     }
