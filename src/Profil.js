@@ -43,7 +43,8 @@ class Profil extends Component {
         <Container className="phone-center">
           <Row>
             <Col sm="12" md="3">
-              <img className="img_profil img-fluid img-thumbnail mt-4" src={mattDamon} alt="Photo de profil" /></img>
+              <img className="img_profil img-fluid img-thumbnail mt-4" 
+              src={mattDamon} alt="Photo de profil" />
             </Col>
             <Col sm="12" md="7">
               <h1 className="mt-5">John Doe</h1>

@@ -10,7 +10,7 @@ class LikedMovie extends Component {
         const propsMovie = this.props.affiche;
         const storedMovie = list.find(function (movie) {
             return movie.id === propsMovie.id;
-        }),
+        })
 
         const isButtonDisabled = storedMovie && storedMovie.liked;
         this.state = {
