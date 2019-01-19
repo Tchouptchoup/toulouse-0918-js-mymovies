@@ -5,8 +5,6 @@ import Modal from "react-responsive-modal";
 import Body_modal from "./Modal/Body_modal";
 import './Modal/mod.css';
 
-
-
 class Affiche extends Component {
     state = {
       open: false
@@ -21,7 +19,9 @@ class Affiche extends Component {
     };
   
     render() {
-    const { poster_path, title } = this.props.affiche;
+
+    const { poster_path, title, vote_average } = this.props.affiche;
+
       const { open } = this.state;
       return (
           

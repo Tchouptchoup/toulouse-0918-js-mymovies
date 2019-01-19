@@ -1,0 +1,108 @@
+
+ .description
+{
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 5px;
+}
+ .nav_movies
+{
+	color: #BA0025;
+}
+ .nav_movies:hover
+{
+	color: black;
+}
+ .rectangle
+{
+	overflow: auto;
+}
+/*  .affiches_size
+{
+	text-align: center;
+}  */
+.rectangle
+{
+	height: auto;
+	border: solid 1px #BA0025;
+	border-radius: 5px;
+}
+
+.description
+{
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.img-thumbnail
+{
+	border-radius: 100%;
+	box-shadow: 2px 2px 8px rgba(186, 0, 37, 0.5);
+}
+
+.img_profil
+{
+	width: 200px;
+}
+
+@media screen and (max-width: 414px)
+{
+	.btn
+	{
+		display: block;
+		text-align: center;
+		width:100%;
+	}
+	.phone-center {
+		text-align:center;
+	}
+
+}
+.test{
+	width:50%;
+}
+.rectangle
+{
+	overflow: auto;
+}
+
+.btn-fb
+{
+  color: white;
+  background-color: #3b5998;
+  height: 40px;
+}
+
+.btn-fb:hover
+{
+  background-color: #BA0025;
+  border-color: #BA0025;
+  color: white;
+}
+
+
+.nav-pills .nav-link.active
+{
+	background-color: #BA0025;
+}
+.btn-test {
+    color: #fff;
+    font-family: 'Pacifico', cursive;
+    font-size:1.2rem;
+    background-color: #9fa9ad;
+    border-color: #9fa9ad;
+    
+}
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #bd0026;
+    border-color: #bd0026;
+
+}
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+    color: #fff;
+    background-color: #bd0026;
+	border-color: #bd0026;
+}
